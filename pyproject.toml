@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "nyt_analysis"
+name = "analysis"
 authors = [
     {name = "Andre Delaney", email = "andre.delaney@gmail.com"},
 ]
@@ -17,6 +17,6 @@ classifiers = [
 ]
 
 [project.scripts]
-nyt_analysis = "nyt_analysis:nyt_analysis"
+analysis = "analysis:analysis"
 
 
