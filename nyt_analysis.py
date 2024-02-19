@@ -38,3 +38,42 @@ class Analysis():
         except Exception as e:
             print(f"Error loading data: {e}")
             raise
+
+    def compute_analysis(self) -> Any:
+        try:
+            if self.dataset is not None:
+                # Extracting word counts from the dataset
+                word_counts = [article.get('word_count', 0) for article in self.dataset.get('response', {}).get('docs', [])]
+
+                # Computing the average word count
+                average_word_count = sum(word_counts) / len(word_counts) if len(word_counts) > 0 else 0
+
+                # Visualizing word counts with a bar chart
+                save_path = 'plot.png'  # Save in the current folder
+                self.plot_data(word_counts, save_path)
+
+                return average_word_count
+
+            else:
+                raise RuntimeError("Data not loaded. Call load_data() first.")
+        except Exception as e:
+            print(f"Error computing analysis: {e}")
+            raise
+
+    def plot_data(self, word_counts: list, save_path: Optional[str] = None) -> None:
+        # Creating a bar chart of word counts
+        plt.figure(figsize=(10, 5))
+        plt.bar(range(len(word_counts)), word_counts, color='blue')
+        plt.xlabel('Article Index')
+        plt.ylabel('Word Count')
+        plt.title('Word Counts of NYT Articles')
+
+        # Save the plot if a save_path is provided
+        if save_path:
+            plt.savefig(save_path)
+            plt.close()  # Close the figure after saving
+        else:
+            plt.show()
+
+    def notify_done(self, message: str) -> None:
+        print(message)
