@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nyt_analysis"
+authors = [
+    {name = "Andre Delaney", email = "andre.delaney@gmail.com"},
+]
+description = "Software package for analyzing NYT articles"
+version = "0.1.0"
+dependencies = ["matplotlib", "pyyaml", "requests", "pandas", "wordcloud"]
+requires-python = ">=3.11.0"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+nyt_analysis = "nyt_analysis:nyt_analysis"
+
+
