@@ -1,0 +1,15 @@
+# NYT Analysis-specific configuration
+analysis:
+  nyt_api_key: 'your_nyt_api_key'
+  nyt_api_url: 'https://api.nytimes.com/svc/archive/v1/2019/1.json'
+  nyt_request_params:
+    api-key: '{{ analysis.nyt_api_key }}'
+  chart_params:
+    plot_color: '{{ system.default_plot_color }}'
+    plot_title: '{{ system.default_plot_title }}'
+    x_axis_title: '{{ system.x_axis_title }}'
+    y_axis_title: '{{ system.y_axis_title }}'
+    figure_size:
+      width: '{{ system.default_figure_size.width }}'
+      height: '{{ system.default_figure_size.height }}'
+    save_path: '{{ system.default_save_path }}/nyt_analysis_plot.png'
