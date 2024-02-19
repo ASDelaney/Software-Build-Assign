@@ -1,0 +1,4 @@
+# User-specific configuration
+user:
+  github_username: 'your_github_username'
+  user_email: 'your_email@example.com'
