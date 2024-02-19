@@ -77,3 +77,10 @@ class Analysis():
 
     def notify_done(self, message: str) -> None:
         print(message)
+
+# Unit Test for `compute_analysis` method
+def test_compute_analysis():
+    analysis_instance = Analysis(analysis_config='path/to/analysis_config.yml')
+    analysis_instance.load_data()
+    result = analysis_instance.compute_analysis()
+    assert isinstance(result, float)
